@@ -1,0 +1,7 @@
+1. use i7z to monitor the realtime cpu frequency
+
+sudo i7z
+
+2. install cpupower to control the cpu frequency
+我这里其它人在用我的机器，之前装的调频好像不能用了。
+要是你那里也不能调，我再查查怎么调频。

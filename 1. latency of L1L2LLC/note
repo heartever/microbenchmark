@@ -1,0 +1,39 @@
+parameters are set for skylake
+
+L1 cache: 8-way
+L2 cache: 4-way
+LLC cache: 16-way
+
+Attention: to measure LLC, the cache slice mapping is fixed in the program, which may not work on Kabylake
+
+1. 
+run as su:
+echo 20 > /proc/sys/vm/nr_hugepages
+
+2. measure the baseline time, i.e. time spent on the measurement
+gcc -O2 baseline_to_be_minus.cpp -o baseline_to_be_minus
+taskset -c 3 sudo ./baseline_to_be_minus
+
+76 (on my machine)
+
+3. measure L1 latency
+gcc -O2 measureprimeL1.cpp -o l1prime
+taskset -c 3 sudo ./l1prime
+
+108 ()
+L1 latency = (108-76)/8 = 4
+
+4. measure L2 latency
+gcc -O2 measureprimeL2.cpp -o l2prime
+taskset -c 3 sudo ./l2prime
+
+184 ()
+L2 latency = (184-76)/9 = 12
+
+5. measure LLC latency
+gcc -O2 measureprimetimeL3.cpp -o l3prime
+taskset -c 3 sudo ./l3prime
+
+725 (on my machine)
+
+LLC latency = (725-76)/16 = 40.5

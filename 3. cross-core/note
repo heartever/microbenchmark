@@ -1,0 +1,12 @@
+1. run baseline to get the average time: 
+taskset -c 3 sudo ./baseline
+32
+
+2. run race
+taskset -c 3 sudo ./baseline
+
+find the minimum value on the 3rd column with non-zero value
+
+228
+
+228-2-32 = 194 is the cross-core communication time, i.e. if the running time is smaller than or equal to 194, no data race is observed.
