@@ -2,6 +2,7 @@
 
 sudo i7z
 
-2. install cpupower to control the cpu frequency
-我这里其它人在用我的机器，之前装的调频好像不能用了。
-要是你那里也不能调，我再查查怎么调频。
+2. install cpupower to control the cpu frequency (outdated)
+
+3.  We managed the CPU frequency with the support of HardwareControlled Performance states (HWP). We first enabled HWP by the writing to the IA32_PM_ENABLE MSR, then configured the frequency range by the writing to
+the IA32_PM_REQUEST MSR.
